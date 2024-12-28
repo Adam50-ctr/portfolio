@@ -78,12 +78,25 @@ img {
 .middle-side a {
   margin: 0 1.4rem;
   color: var(--white-color);
-  font-size: 1rem;
+  font-size: 1.1rem;
   transition: color 0.3s ease;
+  position: relative;
 }
 
-.middle-side a:hover {
-  color: var(--orange-color);
+.middle-side a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: var(--orange-color);
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: width 0.45s ease;
+}
+
+.middle-side a:hover::after {
+  width: 100%;
 }
 
 .right-side {
@@ -140,6 +153,10 @@ img {
 
 /* Left side */
 .hero__content-leftside {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
   flex: 1;
   max-width: 57%;
   margin: 10rem 3.5rem 0 1.2rem;
@@ -330,6 +347,7 @@ img {
   border-radius: 10px;
   transition: background-color 0.4s ease;
   background-color: #191919;
+  max-width: 600px;
 }
 
 .pricing__title {
@@ -453,7 +471,8 @@ li a:hover {
   flex: 1; /* Kitölti a helyet a jobb oldalon */
   margin-right: 2rem;
   padding: 0;
-  text-align: right; /* A tartalom jobbra igazítása */
+  text-align: left; /* A tartalom jobbra igazítása */
+  max-width: 1000px;
 }
 
 .portfolio__image {
@@ -469,6 +488,25 @@ li a:hover {
   color: #ddd;
   line-height: 1.5;
 }
+
+.text-link {
+  color: #7d3c98; /* Kék szín */
+  text-decoration: none; /* Alapértelmezett aláhúzás kikapcsolása */
+  font-weight: bold;
+  margin-left: 5px;
+  transition: color 0.3s ease;
+  font-style: italic;
+}
+
+.text-link i {
+  margin-left: 5px; /* Nyíl távolsága a szövegtől */
+  font-size: 14px; /* Nyíl mérete */
+}
+
+.text-link:hover {
+  color: #551a8b; /* Sötétebb kék hover effekt */
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -519,6 +557,8 @@ li a:hover {
 /* Contact section */
 .contact {
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .contact__container {
@@ -644,7 +684,7 @@ li a:hover {
   max-width: 700px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
 }
 
 .contact__email {
