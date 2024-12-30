@@ -3,6 +3,8 @@
 // Hamburger navbar
 const hamburger = document.querySelector(".hamburger");
 const navbar = document.querySelector(".navbar");
+const bottomNavbar = document.querySelector(".bottom-navbar");
+const heroSection = document.querySelector(".hero");
 
 hamburger.addEventListener("click", () => {
   navbar.classList.toggle("active");
@@ -38,3 +40,36 @@ document
       item.classList.add("active");
     });
   });
+
+window.addEventListener("scroll", () => {
+  const heroBottom = heroSection.getBoundingClientRect().bottom;
+  if (heroBottom < 500) {
+    bottomNavbar.classList.remove("hidden");
+  } else {
+    bottomNavbar.classList.add("hidden");
+  }
+});
+
+// card animation
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".card"); // Kiválasztjuk az összes kártyát
+
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.animationPlayState = "running"; // Az animáció indítása
+          observer.unobserve(entry.target); // Töröljük a figyelést, ha már egyszer látható volt
+        }
+      });
+    },
+    {
+      threshold: 0.3, // Akkor indul, ha a kártya legalább 10%-ban látható
+    }
+  );
+
+  cards.forEach((card) => {
+    card.style.animationPlayState = "paused"; // Az animáció alapértelmezett szüneteltetése
+    observer.observe(card); // Figyeljük, mikor kerül a képernyőre
+  });
+});

@@ -8,7 +8,7 @@
 
 /* basic colors */
 :root {
-  --black-color: #000000;
+  --black-color: #0a0a0a;
   --white-color: #ffffff;
   --orange-color: #ffa500;
 }
@@ -21,7 +21,7 @@ html {
 body {
   font-family: "Roboto", sans-serif;
   font-size: 1rem;
-  background-color: var(--black-color);
+  background-color: rgb(0, 0, 0);
   color: var(--white-color);
 }
 
@@ -42,8 +42,8 @@ img {
 .section-title {
   font-family: "Montserrat", sans-serif;
   color: #fff;
-  font-size: 46px;
-  font-weight: 600;
+  font-size: 4.2rem;
+  font-weight: 500;
   text-align: center;
   line-height: 1.3;
 }
@@ -57,9 +57,8 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  background-color: var(--black-color);
-  position: fixed;
+  padding: 1.8rem 3rem;
+  background-color: none;
   width: 100%;
   z-index: 1000;
 }
@@ -68,57 +67,113 @@ img {
   width: 130px;
 }
 
-.middle-side {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
-}
-
-.middle-side a {
-  margin: 0 1.4rem;
-  color: var(--white-color);
-  font-size: 1.1rem;
-  transition: color 0.3s ease;
-  position: relative;
-}
-
-.middle-side a::after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 2px;
-  background-color: var(--orange-color);
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  transition: width 0.45s ease;
-}
-
-.middle-side a:hover::after {
-  width: 100%;
-}
-
 .right-side {
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
 
-.right-side a {
+.righta {
   margin: 0 1rem;
-  background-color: var(--orange-color);
-  color: var(--black-color);
+  color: #cecece;
   padding: 0.5rem 1rem;
   border-radius: 10px;
-  transition: background-color 0.4s ease;
+  display: inline-block;
+  position: relative;
 }
 
-.right-side a:hover {
+.righta::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: white;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: width 0.45s ease;
+}
+
+.righta:hover::after {
+  width: 80%;
+}
+
+.right-side .btn {
+  display: inline-block;
+  padding: 10px 22px;
+  font-family: "Roboto", sans-serif;
+  color: #000;
+  border-radius: 17px;
+  background: #ffffff; /* Alapháttér szín: fehér */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Finom árnyék */
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.bottom-navbar {
+  position: fixed;
+  bottom: 50px; /* Egy kicsivel följebb kerül */
+  left: 0;
+  right: 0; /* Középre igazítva */
+  max-width: 600px; /* Maximum szélesség */
+  margin: 0 auto; /* Középre igazítás */
+  background-color: rgba(23, 23, 23, 0.95); /* Fekete, enyhén átlátszó háttér */
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.7rem 0.4rem;
+  border-radius: 50px; /* Lekerekített sarkok */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Finom árnyék */
+  z-index: 1000;
+  transition: bottom 0.5s ease; /* Animáció */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.bottom-navbar a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  padding: 0.4rem 0.4rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  display: inline-block;
+  position: relative;
+}
+
+.underline-bottomnavbar::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: white;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: width 0.45s ease;
+}
+
+.underline-bottomnavbar:hover::after {
+  width: 80%; /* Aláhúzás szélessége hoverkor */
+}
+
+.bottom-navbar .cta {
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  border-radius: 20px;
+  padding: 0.5rem 1.5rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.bottom-navbar .cta:hover {
   background-color: black;
-  color: var(--orange-color);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transform: translateY(-2px);
+  color: white;
+}
+
+/* Aktív osztály, amely előhozza a navbar-t */
+.bottom-navbar.show {
+  bottom: 0;
 }
 
 /* Hamburger */
@@ -138,83 +193,82 @@ img {
 
 /* Hero */
 .hero {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   padding: 20px;
   height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000; /* Sötét háttér */
 }
 
 .hero__content {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-}
-
-/* Left side */
-.hero__content-leftside {
-  display: flex;
+  text-align: center;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  flex: 1;
-  max-width: 57%;
-  margin: 10rem 3.5rem 0 1.2rem;
+  margin-top: 2rem;
 }
 
 .hero__title {
-  font-size: 64px;
+  font-size: 6.5rem;
   font-family: "Montserrat", sans-serif;
-  font-weight: 600;
+  font-weight: 500;
+  background: linear-gradient(100deg, hwb(0 99% 1%) 25%, #8b8a8a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* Csillogó szürke szöveg hatás */
+  margin: auto 0rem 6rem 0rem;
+
+  opacity: 0; /* Kezdetben láthatatlan */
+  transform: translateY(50px); /* Kezdetben lejjebb van */
+  animation: titleAnimation 1.5s ease-out forwards; /* Animáció a betöltéskor */
+}
+
+@keyframes titleAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(50px); /* Lentről indul */
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateY(25px); /* Félig emelkedik */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Eléri a végső pozíciót */
+  }
 }
 
 .hero__text {
   font-size: 22px;
-  margin-bottom: 20px;
-  margin-top: 30px;
+  font-family: "Roboto", sans-serif;
+  color: #e0e0e0;
+  margin-top: 20px;
+  margin: auto 13rem 3rem 13rem;
 }
 
 .btn {
   display: inline-block;
   padding: 14px 28px;
-  color: #000; /* Eredeti szövegszín */
+  font-family: "Roboto", sans-serif;
+  color: #000; /* Szövegszín */
   text-decoration: none;
   font-weight: bold;
-  border-radius: 10px;
-  margin-top: 3rem;
+  border-radius: 17px;
   font-size: 18px;
-  background: #ffa500; /* Eredeti háttérszín */
-  background-size: 300% 300%;
-  animation: gradientAnimation 3s ease infinite; /* Meghagyjuk a finom mozgást */
-  box-shadow: 0 5px 15px rgba(255, 165, 0, 0.4); /* Szín árnyék */
+  background: #ffffff; /* Alapháttér szín: fehér */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Finom árnyék */
   transition: all 0.4s ease;
   position: relative;
   overflow: hidden;
 }
 
 .btn:hover {
-  transform: scale(1.1) rotate(3deg);
-  box-shadow: 0 10px 30px rgba(255, 165, 0, 0.6), 0 0 20px #ffa500;
-}
-
-.btn::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(
-    circle,
-    rgba(255, 255, 255, 0.4),
-    rgba(255, 255, 255, 0)
-  );
-  transform: scale(0);
-  transition: transform 0.5s ease;
-}
-
-.btn:hover::before {
-  transform: scale(1.5);
+  background: linear-gradient(
+    90deg,
+    #4a90e2,
+    #50e3c2
+  ); /* Hover: kékes színátmenet */
+  color: #fff; /* Hover: szöveg fehérre vált */
+  box-shadow: 0 10px 20px rgba(80, 227, 194, 0.4); /* Árnyék a hover színekhez igazítva */
+  transform: translateY(-3px); /* Hover mozgás */
 }
 
 @keyframes gradientAnimation {
@@ -229,36 +283,6 @@ img {
   }
 }
 
-.hero__content-rightside {
-  flex: 1;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Két oszlop */
-  gap: 20px; /* Távolság a képek között */
-  max-width: 43%;
-  max-width: 650px;
-}
-
-/* Képek beállítása */
-.hero__image {
-  width: 100%;
-  height: 200px; /* Fix magasság minden képre */
-  object-fit: cover; /* Képek arányos kitöltése */
-  border-radius: 10px;
-  position: relative;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Kicsit eltolt elrendezés a második oszlopban */
-.hero__image:nth-child(odd) {
-  margin-top: 20px; /* Minden páratlan kép legyen kicsit lejjebb tolva */
-}
-
-/* Hover effekt */
-.hero__image:hover {
-  transform: scale(1.05);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
 /* Services section */
 .services {
   padding: 20px;
@@ -270,62 +294,85 @@ img {
   text-align: center;
 }
 
-.service {
-  flex: 1;
-  margin: 0 1rem;
-  padding: 2rem;
-  border-radius: 10px;
-  transition: background-color 0.4s ease;
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 10rem;
+  margin-bottom: 13rem;
+  padding: 0 2rem;
 }
 
-.service__title {
-  font-size: 36px;
-  margin-bottom: 1.7rem;
+.card {
+  background-color: #1a1919;
+  border-radius: 15px;
+  padding: 30px;
+  text-align: center;
+  opacity: 0; /* Az animáció kezdéséhez */
+  transform: translateY(20px); /* Az animáció kezdéséhez */
+  animation: fadeInSlide 0.8s ease forwards; /* Animáció hozzáadása */
 }
 
-.service__text {
-  font-size: 24px;
-  margin-bottom: 1.3rem;
+.card:nth-child(1) {
+  animation-delay: 0.2s; /* Késleltetés az első kártyán */
 }
 
-.italic {
-  font-style: italic;
-  font-size: 16px;
+.card:nth-child(2) {
+  animation-delay: 0.4s;
 }
 
-.italic:hover {
-  color: var(--orange-color);
+.card:nth-child(3) {
+  animation-delay: 0.6s;
 }
 
-.talented__title {
-  font-size: 32px;
-  font-family: "Montserrat", sans-serif;
-  margin-left: 2rem;
+.card:nth-child(4) {
+  animation-delay: 0.8s;
 }
 
-.talented__icon {
-  height: auto;
-  width: 30px;
-}
-.talented__list {
-  margin: 2.4rem 0 5rem 20rem;
-}
-.talented__icon {
-  font-size: 21px;
-}
-
-.talented__text {
-  font-size: 21px;
-  margin-left: 1.3rem;
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.talented__list li {
-  margin: 1.5rem 0;
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.service i {
-  font-size: 3rem;
+.card h3 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.card p {
+  font-size: 1.2rem;
+  color: #b3b3b3;
+  line-height: 1.8;
+}
+
+.card-icon {
+  font-size: 2.4rem;
   margin-bottom: 1rem;
+}
+
+.card a {
+  margin-top: 1rem;
+  text-decoration: underline;
+  color: #b3b3b3;
+}
+
+.card a:hover {
+  color: #141414;
 }
 
 /* pricing section */
@@ -777,7 +824,7 @@ li a:hover {
 
 @media (max-width: 768px) {
   /* HAmburger */
-  .middle-side {
+  .right-side {
     display: none;
   }
 
@@ -785,56 +832,22 @@ li a:hover {
     display: flex;
   }
 
-  .navbar.active .middle-side {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: var(--black-color);
-    width: 100%;
-    text-align: center;
-  }
-
-  .navbar.active .middle-side a {
-    padding: 1rem;
-    border-bottom: 1px solid var(--white-color);
-  }
-
   .hero {
     height: auto;
   }
 
-  .hero__content-rightside {
-    display: none;
-  }
-  .hero__content-leftside {
+  .hero__content {
     max-width: 100%;
     margin: 10rem 0rem 0 1.2rem;
   }
 
-  .services__container {
-    display: flex;
-    flex-direction: column;
-    margin: 8rem 2rem 8rem 2rem;
-    text-align: center;
+  .hero__title {
+    font-size: 4.5rem;
+    margin-bottom: 6rem;
   }
-
-  .service {
-    margin: 1rem 1rem;
-  }
-
-  .talented__title {
-    margin-left: 0rem;
-    font-size: 2rem;
-  }
-
-  .talented__list {
-    margin: 3rem 0 5rem 1.5rem;
-  }
-
-  .talented__text {
-    line-height: 1.6;
+  .hero__text {
+    font-size: 1.2rem;
+    margin: 4rem 1rem;
   }
 
   .section-title {
@@ -902,6 +915,12 @@ li a:hover {
 }
 
 @media (max-width: 500px) {
+  #kecske {
+    display: none;
+  }
+  .hero {
+    height: auto;
+  }
   .hero__title {
     font-size: 3.4rem;
   }
@@ -910,9 +929,6 @@ li a:hover {
     font-size: 1.2rem;
     margin-right: 0.4rem;
   }
-}
-
-@media (max-width: 500px) {
   .services {
     padding: 10px;
   }

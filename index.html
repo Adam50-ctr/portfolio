@@ -55,7 +55,11 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
 
     <link rel="icon" href="./img/favicon.png" />
 
@@ -89,15 +93,20 @@
       <div class="left-side">
         <img src="./img/logo.png" alt="Logo" class="logo" />
       </div>
-      <div class="middle-side">
-        <a href="#services">Szolgáltatások</a>
-        <a href="#portfolio">Referenciák</a>
-        <a href="#contact">Rólunk</a>
-        <a href="#pricing">Árak</a>
-      </div>
       <div class="right-side">
-        <a href="#contact">Dolgozzunk együtt!</a>
+        <a href="#services" class="righta">Szolgáltatások</a>
+        <a href="#portfolio" class="righta">Referenciák</a>
+        <a href="#pricing" class="righta">Árak</a>
+        <a href="#contact" class="btn">Dolgozzunk együtt!</a>
       </div>
+      <div class="bottom-navbar hidden">
+        <a href="#hero"><i class="fas fa-arrow-up"></i></a>
+          <a href="#services" class="underline-bottomnavbar" id="kecske">Szolgáltatások</a>
+          <a href="#portfolio" class="underline-bottomnavbar">Referenciák</a>
+          <a href="#pricing" class="underline-bottomnavbar" id="kecske">Árak</a>
+        <a href="#contact" class="cta">Dolgozzunk együtt!</a>
+      </div>
+      
 
       <div class="hamburger">
         <span></span>
@@ -106,11 +115,10 @@
       </div>
     </div>
     <!-- Hero Section -->
-    <div class="hero">
+    <div class="hero" id="hero">
       <div class="hero__content">
-        <div class="hero__content-leftside">
           <h1 class="hero__title">
-            Digitális megoldások, amik vállalkozásod sikerét építik
+            Elérhető árakon, elérhetetlen eredmények
           </h1>
           <p class="hero__text">
             Egyedi weboldalakat készítünk, amelyek nemcsak jól néznek ki, hanem
@@ -118,55 +126,62 @@
             vállalkozásod a következő szintre!
           </p>
           <a href="#contact" class="btn">Dolgozzunk együtt!</a>
-        </div>
-        <div class="hero__content-rightside">
-          <img src="./img/heroimg01.jpg" alt="Hero Image" class="hero__image01" />
-          <img src="./img/heroimg02.jpg" alt="Hero Image" class="hero__image02" />
-          <img src="./img/heroimg03.jpg" alt="Hero Image" class="hero__image03" />
-          <img src="./img/heroimg04.jpg" alt="Hero Image" class="hero__image04" />
-          <img src="./img/heroimg05.jpg" alt="Hero Image" class="hero__image05" />
-          <img src="./img/heroimg06.jpg" alt="Hero Image" class="hero__image06" />
-        </div>
       </div>
     </div>
     <!-- Services Section -->
     <div class="services" id="services">
-      <h2 class="section-title">Szolgáltatásaink</h2>
-      <div class="services__container">
-        <div class="service">
-          <i class="fas fa-users"></i>
-          <h3 class="service__title">Ismerj meg minket közelebbről</h3>
-          <p class="service__text">
-            Nálunk az ügyfelek elképzelései állnak a középpontban, és elkötelezettek vagyunk abban, hogy egyedi, modern és megbízható megoldásokat nyújtsunk, amelyek teljes mértékben igazodnak az igényeidhez.
-          </p>
-          <a href="#pricing" class="italic">Tudj meg többet-></a>
-        </div>
-        <div class="service">
-            <i class="fas fa-cogs"></i>
-          <h3 class="service__title">Technológiák, amelyekkel dolgozunk</h3>
-          <p class="service__text">
-            A legmodernebb eszközökkel és technológiákkal dolgozunk, hogy weboldalad ne csak szép, de funkcionális és könnyen kezelhető is legyen.
-          </p>
-          <a href="#portfolio" class="italic">Tudj meg többet a megoldásainkról-></a>
-        </div>
-        <div class="service">
-            <i class="fas fa-trophy"></i>
-            <h3 class="service__title">Miért minket válassz?</h3>
-            <p class="service__text">
-                Tudjuk, hogy minden vállalkozás egyedi, ezért munkáinkat az ügyfeleink céljaira szabjuk, és egyedi, hosszú távon hatékony weboldalakat tervezünk, ahol az eredmények és az elégedettség a legfontosabbak.
-            </p>
-            <a href="#pricing" class="italic">Dolgozzunk együtt!-></a>
-        </div>
-      </div>
-      <div class="talented">
-        <h3 class="talented__title">Szakértelmünk:</h3>
-        <ul class="talented__list">
-            <li><img src="./img/html.png" alt="html logo" class="talented__icon"><span class="talented__text">Frontend: HTML5, CSS3, JavaScript, React</span></li>
-            <li><img src="./img/respnsive.png" alt="html logo" class="talented__icon"><span class="talented__text">Webdesign: Reszponzív és modern design készítése</span></li>
-            <li><img src="./img/wordpress.png" alt="html logo" class="talented__icon"><span class="talented__text">CMS rendszerek: WordPress testreszabás</span></li>
-            <li><img src="./img/business_1138492.png" alt="html logo" class="talented__icon"><span class="talented__text">SEO és analitika: Keresőoptimalizálás, Google Analytics</span></li>
-            <li><img src="./img/Egyedimegoldas.png" alt="html logo" class="talented__icon"><span class="talented__text">Egyedi megoldások: API-integrációk, gyors és skálázható fejlesztés</span></li>
-        </ul>
+      <h2 class="section-title">Miért válassz minket?</h2>
+        <div class="services__content">
+          <div class="cards-container">
+            <div class="card">
+              <div class="card-icon">🔧</div>
+              <h3>HTML szakértelem</h3>
+              <p>Professzionális és SEO-barát kód.</p>
+              <a href="#contact">Tudj meg többet</a>
+            </div>
+            <div class="card">
+              <div class="card-icon">🎨</div>
+              <h3>CSS dizájn</h3>
+              <p>Modern és mobilbarát megjelenés.</p>
+              <a href="#contact">Tudj meg többet</a>
+            </div>
+            <div class="card">
+              <div class="card-icon">⚡</div>
+              <h3>Gyorsaság</h3>
+              <p>Villámgyors elkészítés, akár 3-5 munkanapon belül!</p>
+              <a href="#contact">Tudj meg többet</a>
+            </div>
+            <div class="card">
+              <div class="card-icon">💡</div>
+              <h3>JavaScript tudás</h3>
+              <p>Interaktív és gyors weboldalak.</p>
+              <a href="#contact">Tudj meg többet</a>
+            </div>
+            <div class="card">
+              <div class="card-icon">💰</div>
+              <h3>Elérhető árak</h3>
+              <p>Már 18 000 Ft-tól saját weboldalad lehet.</p>
+              <a href="#pricing">Tudj meg többet</a>
+            </div>
+            <div class="card">
+              <div class="card-icon">🤝</div>
+              <h3>Személyre szabott figyelem</h3>
+              <p>Minden projekt egyedi és különleges számunkra.</p>
+              <a href="#">Tudj meg többet</a>
+            </div>
+            <div class="card">
+              <div class="card-icon">📞</div>
+              <h3>Őszinte kommunikáció</h3>
+              <p>Rugalmas együttműködés kezdők és profik számára is.</p>
+              <a href="#contact">Tudj meg többet</a>
+            </div>
+            <div class="card">
+              <div class="card-icon">📈</div>
+              <h3>Folyamatos fejlődés</h3>
+              <p>Fiatal csapat vagyunk, akik mindig tanulnak.</p>
+              <a href="#about">Tudj meg többet</a>
+            </div>
+          </div>          
       </div>
     </div>
     <!-- Pricing Section -->
