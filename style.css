@@ -602,141 +602,253 @@ li a:hover {
 }
 
 /* Contact section */
-.contact {
+.contact__container {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #000000;
+  color: #fff;
+  height: 100vh;
 }
 
-.contact__container {
-  max-width: 50%;
-  margin: 10rem 2rem 15rem 2rem;
-}
-
-.contact__title {
-  text-align: left;
-  margin-bottom: 6rem;
-}
-
-.contact__form {
+.left {
+  flex: 1;
+  padding: 50px;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  justify-content: center;
+  background-color: #f4f4f4;
+  color: #000000;
+  max-width: 43%;
+  height: 100vh;
 }
 
-/* Contact form */
-/* Contact form */
-/* Contact form */
-/* Kapcsolati űrlap alapstílus */
-.contact__form input,
-.contact__form textarea {
-  margin-bottom: 1rem;
-  width: 100%;
-  padding: 1rem;
-  border: 2px solid rgba(255, 255, 255, 0.4);
-  border-radius: 20px;
-  font-size: 1rem;
-  background: rgba(0, 0, 0, 0.7);
-  color: #fff;
-  transition: all 0.3s ease-in-out;
+.left h1 {
+  font-size: 4.5rem;
+  margin-bottom: 20px;
+}
+
+.left p {
+  font-size: 1.3rem;
+  line-height: 1.5;
+}
+
+.right {
+  flex: 1;
+  padding: 50px;
+  background-color: #000000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   position: relative;
-  outline: none; /* Az alapértelmezett fókusz eltávolítása */
 }
 
-/* Fókusz esetén lila animáció */
-.contact__form input:focus,
-.contact__form textarea:focus {
-  border-color: transparent;
-  background: rgba(20, 20, 20, 0.9);
-  box-shadow: 0 0 10px rgba(106, 13, 173, 0.8);
-  animation: focus-glow 1.5s infinite linear;
+.steps {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5rem;
+  position: relative;
 }
 
-/* Animáció a lila fénypont hatáshoz */
-@keyframes focus-glow {
-  0% {
-    box-shadow: 0 0 5px rgba(106, 13, 173, 0.6),
-      0 0 15px rgba(106, 13, 173, 0.4);
-  }
-  50% {
-    box-shadow: 0 0 15px rgba(106, 13, 173, 0.8),
-      0 0 30px rgba(106, 13, 173, 0.5);
-  }
-  100% {
-    box-shadow: 0 0 5px rgba(106, 13, 173, 0.6),
-      0 0 15px rgba(106, 13, 173, 0.4);
-  }
+.steps::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background-color: #888;
+  z-index: 0;
+  transform: translateY(-50%);
 }
 
-/* Gomb stílus */
-.contact__form .btn {
-  background: rgba(106, 13, 173, 0.9);
-  color: #fff;
-  border: none;
-  border-radius: 20px;
-  padding: 18px 28px;
+.steps span {
+  color: #888;
   font-size: 1.2rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  position: relative;
+  padding: 5px 10px;
+  border-radius: 50%;
+  border: 2px solid #888;
+  background-color: #000000;
+  z-index: 1;
+  transition: all 0.3s;
 }
 
-.contact__form .btn:hover {
-  background: rgba(128, 0, 128, 1);
-}
-
-.contact__form textarea {
-  resize: vertical;
-  min-height: 150px;
-}
-
-.contact__form button {
-  padding: 1rem 2rem;
-  border: none;
-  border-radius: 50px; /* Extra kerekített */
-  background: linear-gradient(45deg, #ff0099, #493240);
+.steps span.active {
   color: #fff;
+  border-color: #ff4d4d;
+  background-color: #ff4d4d;
+}
+
+form {
+  display: none; /* Alapértelmezésben rejtett */
+}
+
+form.active {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  margin: 20px 0 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  position: relative;
+}
+
+form input {
+  padding: 10px;
+  margin-bottom: 45px;
+  border: none;
+  border-bottom: 2px solid #888;
+  background-color: transparent;
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s;
+}
+
+form input::placeholder {
+  color: #fff;
+  opacity: 0.8;
+  transition: opacity 0.3s;
   font-size: 1.2rem;
+}
+
+form input:focus {
+  border-bottom: 2px solid #ff4d4d;
+  opacity: 1;
+}
+
+form button {
+  padding: 15px;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(45deg, #d84343, #e05a5a);
+  color: #fff;
+  font-size: 1.1rem;
   font-weight: bold;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s;
+  text-transform: uppercase;
+  box-shadow: 0 2px 8px rgba(216, 67, 67, 0.4);
 }
 
-.contact__form button:hover {
-  background: linear-gradient(45deg, #493240, #ff0099);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(255, 0, 153, 0.4); /* Neon glow */
+form button:hover {
+  background: linear-gradient(45deg, #c73c3c, #d84f4f);
+  box-shadow: 0 4px 12px rgba(216, 67, 67, 0.6);
+  transform: scale(1.03);
 }
 
-.contact__form {
+/* Általános formázás a form-hoz */
+#step2-form {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem; /* Gap az inputok között */
+  gap: 1.5rem; /* Egyenletes távolság a mezők között */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  color: #fff;
 }
 
-.contact__image {
-  max-width: 50%;
-  width: 100%;
-  height: auto;
+/* Label formázása */
+#step2-form label {
+  font-size: 1.8rem;
+  color: #ddd;
+}
+
+/* Szövegdoboz (textarea) formázása */
+#step2-form textarea {
+  padding: 10px;
+  font-size: 1rem;
+  background-color: #050505;
+  color: #fff;
+  outline: none;
+  resize: none; /* Átméretezés letiltása */
+  transition: border-bottom-color 0.3s ease;
   border-radius: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease;
+  margin-bottom: 2rem;
 }
-
-.contact__image:hover {
-  transform: scale(1.05); /* Kicsit nagyobbítás hoverre */
-}
-
-.contact__img {
-  max-width: 700px;
+/* Step 3 Form */
+#step3-form {
+  padding: 20px;
+  border-radius: 10px;
   display: flex;
-  justify-content: center;
-  align-items: flex-end;
+  flex-direction: column;
 }
 
-.contact__email {
-  font-size: 21px;
-  margin-top: 3rem;
+.subtitlequiz {
+  font-size: 1.6rem;
+  color: #ddd;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem auto 3rem 5rem;
+  gap: 1rem;
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: center; /* Függőleges középre igazítás */
+  font-size: 1.3rem;
+  line-height: 1.5; /* Szöveg magasságának biztosítása */
+  cursor: pointer;
+  gap: 0.5rem; /* Távolság a checkbox és a szöveg között */
+}
+
+.checkbox-group input[type="checkbox"] {
+  margin: 0; /* Margók eltávolítása a checkbox körül */
+  padding: 0; /* Padding eltávolítása a checkboxból */
+  width: 20px;
+  height: 20px;
+  accent-color: #ff4d4d; /* Checkbox színe */
+  vertical-align: middle; /* Középre igazítás a szöveghez képest */
+}
+
+/* Step 4 Form */
+#step4-form {
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+}
+
+#step4-form label {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ddd;
+  margin-bottom: 2rem;
+}
+
+#step4-form input,
+#step4-form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 2rem;
+  font-size: 1.3rem;
+  border: none;
+  border-bottom: 2px solid #888;
+  background-color: transparent;
+  color: #fff;
+  outline: none;
+  transition: all 0.3s;
+}
+
+#step4-form input:focus,
+#step4-form select:focus {
+  border-bottom-color: #ff4d4d;
+}
+
+#step4-form select option {
+  background-color: #131313; /* Az opciók háttérszíne */
+  color: #fff; /* Az opciók szövegének színe */
 }
 
 /* Footer */
@@ -816,8 +928,37 @@ li a:hover {
   color: var(--orange-color); /* Hover color */
   scale: 1.1;
 }
+@media (max-width: 1100px) {
+  .left {
+    margin: 0 0;
+    padding: 20px;
+  }
+
+  .left h1 {
+    font-size: 3.5rem;
+  }
+  .left p {
+    font-size: 1.2rem;
+  }
+}
+
 @media (max-width: 1000px) {
   .hero__content-rightside {
+    display: none;
+  }
+  .left {
+    display: none;
+  }
+  .contact__container {
+    max-width: 100%;
+    margin: 0rem 3rem;
+  }
+
+  .contact__title {
+    margin-bottom: 3rem;
+  }
+
+  .contact__image {
     display: none;
   }
 }
@@ -895,22 +1036,11 @@ li a:hover {
   .about__img {
     border-radius: 10px;
   }
+}
 
-  .contact {
-    display: flex;
-  }
-
+@media (max-width: 620px) {
   .contact__container {
-    max-width: 100%;
-    margin: 4rem 2rem 15rem 2rem;
-  }
-
-  .contact__title {
-    margin-bottom: 3rem;
-  }
-
-  .contact__image {
-    display: none;
+    margin: 0;
   }
 }
 
