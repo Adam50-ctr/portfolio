@@ -19,110 +19,94 @@
       </div>
       <div class="right">
         <div class="steps">
-          <span id="step1" class="active">Step 1</span>
-          <span id="step2">Step 2</span>
-          <span id="step3">Step 3</span>
-          <span id="step4">Step 4</span>
+          <span id="step1In" class="active">Step 1</span>
+          <span id="step2In">Step 2</span>
+          <span id="step3In">Step 3</span>
+          <span id="step4In">Step 4</span>
         </div>
-
-        <form id="step1-form" class="active" method="POST" data-netlify="true">
-          <input type="hidden" name="form-name" value="step1-form" />
-          <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="Add meg a neved"
-            required
-          />
-
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Add meg az e-mail címed"
-            required
-          />
-
-          <input
-            type="text"
-            id="company"
-            name="company"
-            placeholder="Cég neve (opcionális)"
-          />
-          <button type="button" id="next-button">Következő lépés</button>
-        </form>
-
         <form
-          id="step2-form"
-          style="display: none"
-          method="POST"
-          data-netlify="true"
-        >
-          <input type="hidden" name="form-name" value="step2-form" />
-          <label for="project">Projekt részletei</label>
-          <textarea
-            id="project"
-            name="project"
-            placeholder="Írd le a projekted..."
-            rows="9"
-          ></textarea>
-          <button type="button" id="submit-button">Következő lépés</button>
-        </form>
-
-        <form
-          id="step3-form"
-          style="display: none"
-          method="POST"
-          data-netlify="true"
-        >
-          <input type="hidden" name="form-name" value="step3-form" />
-          <label class="subtitlequiz">Válaszd ki, mire van szükséged:</label>
-          <div class="checkbox-group">
-            <label>
-              <input type="checkbox" name="service" value="design" />
-              Webdesign
-            </label>
-            <label>
-              <input type="checkbox" name="service" value="development" />
-              Webfejlesztés
-            </label>
-            <label>
-              <input type="checkbox" name="service" value="seo" />
-              SEO optimalizálás
-            </label>
-            <label>
-              <input type="checkbox" name="service" value="maintenance" />
-              Karbantartás
-            </label>
-          </div>
-          <button type="button" id="step3-next">Következő lépés</button>
-        </form>
-
-        <form
-          id="step4-form"
-          style="display: none"
+          id="multi-step-form"
           method="POST"
           data-netlify="true"
           action="/thank-you.html"
         >
-          <input type="hidden" name="form-name" value="step4-form" />
-          <label for="budget">Tervezett költségvetés</label>
-          <select id="budget" name="budget" required>
-            <option value="low">18.000 Ft alatt</option>
-            <option value="medium">18.000–50.000 Ft</option>
-            <option value="high">50.000 Ft felett</option>
-          </select>
+          <input type="hidden" name="form-name" value="multi-step-form" />
 
-          <label for="timeline">Projekt időtartam</label>
-          <input
-            type="text"
-            id="timeline"
-            name="timeline"
-            placeholder="Add meg az időkeretet (pl. 2 hét)"
-            required
-          />
+          <div id="step1" class="active">
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Add meg a neved"
+              required
+            />
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Add meg az e-mail címed"
+              required
+            />
+            <input
+              type="text"
+              id="company"
+              name="company"
+              placeholder="Cég neve (opcionális)"
+            />
+            <button type="button" id="next-button">Következő lépés</button>
+          </div>
 
-          <button type="submit" id="step4-next">Befejezés</button>
+          <div id="step2" style="display: none">
+            <label for="project">Projekt részletei</label>
+            <textarea
+              id="project"
+              name="project"
+              placeholder="Írd le a projekted..."
+              rows="9"
+            ></textarea>
+            <button type="button" id="step2-next">Következő lépés</button>
+          </div>
+
+          <div id="step3" style="display: none">
+            <label class="subtitlequiz">Válaszd ki, mire van szükséged:</label>
+            <div class="checkbox-group">
+              <label>
+                <input type="checkbox" name="service" value="design" />
+                Webdesign
+              </label>
+              <label>
+                <input type="checkbox" name="service" value="development" />
+                Webfejlesztés
+              </label>
+              <label>
+                <input type="checkbox" name="service" value="seo" /> SEO
+                optimalizálás
+              </label>
+              <label>
+                <input type="checkbox" name="service" value="maintenance" />
+                Karbantartás
+              </label>
+            </div>
+            <button type="button" id="step3-next">Következő lépés</button>
+          </div>
+
+          <div id="step4" style="display: none">
+            <label for="budget">Tervezett költségvetés</label>
+            <select id="budget" name="budget" required>
+              <option value="low">18.000 Ft alatt</option>
+              <option value="medium">18.000–50.000 Ft</option>
+              <option value="high">50.000 Ft felett</option>
+            </select>
+            <label for="timeline">Projekt időtartam</label>
+            <input
+              type="text"
+              id="timeline"
+              name="timeline"
+              placeholder="Add meg az időkeretet (pl. 2 hét)"
+              required
+            />
+            <button type="submit" id="submit-button">Befejezés</button>
+          </div>
         </form>
       </div>
     </div>

@@ -684,23 +684,19 @@ li a:hover {
   background-color: #ff4d4d;
 }
 
-form {
-  display: none; /* Alapértelmezésben rejtett */
-}
-
-form.active {
+#step1In.active {
   display: flex;
   flex-direction: column;
 }
 
-form label {
+#multi-step-form label {
   margin: 20px 0 5px;
   font-size: 1rem;
   font-weight: bold;
   position: relative;
 }
 
-form input {
+#multi-step-form input {
   padding: 10px;
   margin-bottom: 45px;
   border: none;
@@ -712,19 +708,19 @@ form input {
   transition: all 0.3s;
 }
 
-form input::placeholder {
+#multi-step-form input::placeholder {
   color: #fff;
   opacity: 0.8;
   transition: opacity 0.3s;
   font-size: 1.2rem;
 }
 
-form input:focus {
+#multi-step-form input:focus {
   border-bottom: 2px solid #ff4d4d;
   opacity: 1;
 }
 
-form button {
+#multi-step-form button {
   padding: 15px;
   border: none;
   border-radius: 25px;
@@ -738,14 +734,25 @@ form button {
   box-shadow: 0 2px 8px rgba(216, 67, 67, 0.4);
 }
 
-form button:hover {
+#multi-step-form button:hover {
   background: linear-gradient(45deg, #c73c3c, #d84f4f);
   box-shadow: 0 4px 12px rgba(216, 67, 67, 0.6);
   transform: scale(1.03);
 }
 
+/* step 1 */
+#step1 {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  color: #fff;
+}
+
 /* Általános formázás a form-hoz */
-#step2-form {
+#step2 {
   display: flex;
   flex-direction: column;
   gap: 1.5rem; /* Egyenletes távolság a mezők között */
@@ -756,13 +763,13 @@ form button:hover {
 }
 
 /* Label formázása */
-#step2-form label {
+#step2 label {
   font-size: 1.8rem;
   color: #ddd;
 }
 
 /* Szövegdoboz (textarea) formázása */
-#step2-form textarea {
+#step2 textarea {
   padding: 10px;
   font-size: 1rem;
   background-color: #050505;
@@ -774,14 +781,14 @@ form button:hover {
   margin-bottom: 2rem;
 }
 /* Step 3 Form */
-#step3-form {
+#step3 {
   padding: 20px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
 }
 
-.subtitlequiz {
+#step3 .subtitlequiz {
   font-size: 1.6rem;
   color: #ddd;
 }
@@ -793,8 +800,8 @@ form button:hover {
   gap: 1rem;
 }
 
-.checkbox-group label {
-  display: flex;
+#step3 .checkbox-group label {
+  display: inline-flex;
   align-items: center; /* Függőleges középre igazítás */
   font-size: 1.3rem;
   line-height: 1.5; /* Szöveg magasságának biztosítása */
@@ -808,11 +815,12 @@ form button:hover {
   width: 20px;
   height: 20px;
   accent-color: #ff4d4d; /* Checkbox színe */
-  vertical-align: middle; /* Középre igazítás a szöveghez képest */
+  flex-shrink: 0;
+  display: inline-block;
 }
 
 /* Step 4 Form */
-#step4-form {
+#step4 {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
@@ -820,15 +828,15 @@ form button:hover {
   flex-direction: column;
 }
 
-#step4-form label {
+#step4 label {
   font-size: 1.5rem;
   font-weight: bold;
   color: #ddd;
   margin-bottom: 2rem;
 }
 
-#step4-form input,
-#step4-form select {
+#step4 input,
+#step4 select {
   width: 100%;
   padding: 10px;
   margin-bottom: 2rem;
@@ -841,12 +849,12 @@ form button:hover {
   transition: all 0.3s;
 }
 
-#step4-form input:focus,
-#step4-form select:focus {
+#step4 input:focus,
+#step4 select:focus {
   border-bottom-color: #ff4d4d;
 }
 
-#step4-form select option {
+#step4 select option {
   background-color: #131313; /* Az opciók háttérszíne */
   color: #fff; /* Az opciók szövegének színe */
 }
@@ -956,10 +964,6 @@ form button:hover {
 
   .contact__title {
     margin-bottom: 3rem;
-  }
-
-  .contact__image {
-    display: none;
   }
 }
 
