@@ -62,7 +62,7 @@
 
 
     <link rel="icon" href="./img/favicon.png" />
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
   </head>
   <!-- Google tag (gtag.js) google ads-->
@@ -88,6 +88,8 @@
   gtag('config', 'G-ELSKEF7D2B');
 </script>
   <body>
+
+    <svg id="svgContainer"></svg>
     <!-- Navbar -->
     <div class="navbar">
       <div class="left-side">
@@ -97,14 +99,7 @@
         <a href="#services" class="righta">Szolgáltatások</a>
         <a href="#portfolio" class="righta">Referenciák</a>
         <a href="#pricing" class="righta">Árak</a>
-        <a href="contact.html" class="btn">Dolgozzunk együtt!</a>
-      </div>
-      <div class="bottom-navbar hidden">
-        <a href="#hero"><i class="fas fa-arrow-up"></i></a>
-          <a href="#services" class="underline-bottomnavbar" id="kecske">Szolgáltatások</a>
-          <a href="#portfolio" class="underline-bottomnavbar">Referenciák</a>
-          <a href="#pricing" class="underline-bottomnavbar" id="kecske">Árak</a>
-        <a href="contact.html" class="cta">Dolgozzunk együtt!</a>
+        <a href="contact.html" class="btn"><span class="duplicate">Dolgozzunk együtt!</span></a>
       </div>
       
 
@@ -113,6 +108,13 @@
         <span></span>
         <span></span>
       </div>
+    </div>
+    <div class="bottom-navbar hidden">
+      <a href="#hero"><i class="fas fa-arrow-up"></i></a>
+        <a href="#services" class="underline-bottomnavbar" id="kecske">Szolgáltatások</a>
+        <a href="#portfolio" class="underline-bottomnavbar">Referenciák</a>
+        <a href="#pricing" class="underline-bottomnavbar" id="kecske">Árak</a>
+      <a href="contact.html" class="cta">Dolgozzunk együtt!</a>
     </div>
     <!-- Hero Section -->
     <div class="hero" id="hero">
@@ -125,37 +127,38 @@
             valódi eredményeket hoznak. Bízd ránk ötleteidet, és emeld
             vállalkozásod a következő szintre!
           </p>
-          <a href="#contact" class="btn">Dolgozzunk együtt!</a>
+          <a href="contact.html" class="btn">
+            <span class="duplicate">Dolgozzunk együtt!</span></a>
       </div>
     </div>
     <!-- Services Section -->
     <div class="services" id="services">
-      <h2 class="section-title">Miért válassz minket?</h2>
+      <h2 class="section-title glow-effect">Miért válassz minket?</h2>
         <div class="services__content">
           <div class="cards-container">
             <div class="card">
               <div class="card-icon">🔧</div>
               <h3>HTML szakértelem</h3>
               <p>Professzionális és SEO-barát kód.</p>
-              <a href="#contact">Tudj meg többet</a>
+              <a href="contact.html">Tudj meg többet</a>
             </div>
             <div class="card">
               <div class="card-icon">🎨</div>
               <h3>CSS dizájn</h3>
               <p>Modern és mobilbarát megjelenés.</p>
-              <a href="#contact">Tudj meg többet</a>
+              <a href="contact.html">Tudj meg többet</a>
             </div>
             <div class="card">
               <div class="card-icon">⚡</div>
               <h3>Gyorsaság</h3>
               <p>Villámgyors elkészítés, akár 3-5 munkanapon belül!</p>
-              <a href="#contact">Tudj meg többet</a>
+              <a href="contact.html">Tudj meg többet</a>
             </div>
             <div class="card">
               <div class="card-icon">💡</div>
               <h3>JavaScript tudás</h3>
               <p>Interaktív és gyors weboldalak.</p>
-              <a href="#contact">Tudj meg többet</a>
+              <a href="contact.html">Tudj meg többet</a>
             </div>
             <div class="card">
               <div class="card-icon">💰</div>
@@ -173,7 +176,7 @@
               <div class="card-icon">📞</div>
               <h3>Őszinte kommunikáció</h3>
               <p>Rugalmas együttműködés kezdők és profik számára is.</p>
-              <a href="#contact">Tudj meg többet</a>
+              <a href="contact.html">Tudj meg többet</a>
             </div>
             <div class="card">
               <div class="card-icon">📈</div>
@@ -186,29 +189,49 @@
     </div>
     <!-- Pricing Section -->
     <div class="pricing" id="pricing">
-      <h2 class="section-title">Újévi Akció - Különleges Ajánlatok!</h2>
+      <h2 class="pricing-title">Újévi Akció - Különleges Ajánlatok!</h2>
       <div class="pricing__container">
+        <!-- Alap csomag -->
         <div class="pricing__card">
           <h3 class="pricing__title">Alap csomag</h3>
           <p class="pricing__price"><span class="athuzni">32 000 Ft </span>18 000 Ft</p>
           <ul class="pricing__features">
             <li>1-3 oldal (bemutatkozó, kapcsolat, szolgáltatás)</li>
             <li>Reszponzív design (mobilbarát megjelenés)</li>
-            <li>Alap SEO beállítások (jobb keresőmotoros helyezés)</li>
-            <li>Gyors és egyszerű megoldások induló vállalkozások számára</li>
+            <li>Alap SEO beállítások</li>
+            <li>Ideális induló vállalkozásoknak</li>
           </ul>
-          <a href="#contact" class="btn center">Választom ezt!</a>
+          <a href="contact.html" class="pricing__button">Választom ezt!</a>
         </div>
+
+
+        <!-- Premium csomag -->
+        <div class="pricing__card" id="premium">
+          <h3 class="pricing__title" >Prémium csomag</h3>
+          <p class="pricing__price"><span class="athuzni">90 000 Ft</span> 60 000 Ft</p>
+          <ul class="pricing__features">
+            <li>5-10 oldal (extra funkciók: blog, galéria)</li>
+            <li>Reszponzív és egyedi design</li>
+            <li>Haladó SEO és marketing kampány beállítás</li>
+            <li>6 hónap ingyenes support</li>
+            <li>Haladó vállalkozásoknak és webshopoknak</li>
+          </ul>
+          <a href="contact.html" class="premium__button">Legjobb befektetés!</a>
+        </div>
+
+        <!-- Profi csoamg -->
         <div class="pricing__card">
           <h3 class="pricing__title">Profi csomag</h3>
             <p class="pricing__price"><span class="athuzni">64 000 Ft </span>32 000 Ft</p>
           <ul class="pricing__features">
-            <li>1-3 oldal (bemutatkozó, kapcsolat, szolgáltatás)</li>
-            <li>Reszponzív design (mobilbarát megjelenés)</li>
-            <li>Alap SEO beállítások (jobb keresőmotoros helyezés)</li>
-            <li>Gyors és egyszerű megoldások induló vállalkozások számára</li>
+            <li>1-5 oldal</li>
+            <li>Reszponzív design (mobilbarát)</li>
+            <li>Haladó SEO beállítások</li>
+            <li>Egyedi vizuális elemek</li>
+            <li>3 hónap ingyenes support</li>
+            <li>Növekedésre kész vállalkozásoknak</li>
           </ul>
-          <a href="#contact" class="btn center">Választom ezt!</a>
+          <a href="contact.html" class="pricing__button">Választom ezt!</a>
         </div>
       </div>
     </div>
@@ -258,11 +281,11 @@
       <div class="about__container">
         <div class="about__content">
           <h2 class="section-title">Rólunk – Kik vagyunk és hogyan dolgozunk?</h2>
-          <p class="about__text">
+          <p class="about__text ">
             A Kreatocode egy dinamikus és szenvedélyes csapat, amely elkötelezett abban, hogy ügyfelei számára egyedi, funkcionális és kreatív megoldásokat nyújtson. Célunk, hogy a vállalkozásod igényeire szabott weboldalakat hozzunk létre, amelyek nemcsak gyönyörűek, hanem hatékonyak is.
           </p>
         </div>
-        <div class="about__image">
+        <div class="about__image ">
           <img src="./img/about.jpg" alt="About Us Image" class="about__img" />
         </div>
       </div>
